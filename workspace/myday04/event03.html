@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첨부파일 썸네일</title>
+    <style>
+        div {
+            width: 150px;
+        }
+
+        div.file-name {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        label[for='attach'] div.image {
+            position: relative;
+            height: 150px   ;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/272/272446.png');
+            background-size: 100%;
+            cursor: pointer;
+        }
+
+        div span {
+            text-align: center;
+            display: none;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #00000094;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parent" style="position: relative;">
+        <label for="attach">
+            <div class="img">
+                <span>X</span>
+            </div>
+        </label>
+        <input type="file" id="attach" style="display: none;">
+        <div style="position: absolute;"></div>
+    </div>
+</body>
+<script>
+    const file = document.querySelector("input[type=file]"); // = 뒤에 작은따옴표 생략 가능
+    const imgDiv = document.querySelector("label[for=attach] div");
+
+    // x 버튼을 누르면, 기본 이미지로 변경!
+    // const parent = document.getElementById("parent");
+    // const newButton = document.createElement("button");
+    // function closeImgButton() {
+    //     newButton.style.display= 'block';
+    //     newButton.style.position= 'absolute';
+    //     newButton.style.height='30vw';
+    //     newButton.style.width='30vw';
+    //     parent.appendChild(newButton);
+
+    //     file.addEventListener("click", e => {})
+    // }
+    const closeSpan = document.querySelector('div span');
+    const input = document.querySelector('#attach');
+    closeSpan.addEventListener("click", function(e){
+        e.preventDefault();
+        input.value = "";
+        this.style.display = "none";
+        imgDiv.style.backgroundImage = `url('https://cdn-icons-png.flaticon.com/512/272/272446.png')`;
+    })
+
+
+    file.addEventListener("change", function(e){ // e는 모든 것을 담은 event객체
+        // console.log(e.target.files[0].name);
+        const name = e.target.files[0].name
+        closeSpan.style.display = "inline-block";
+        this.style.display = 'none';
+        // console.log(e); //event객체
+        reader.readAsDataURL(e.target.filles[0]); //이 함수가 실행됐다면
+        reader.onload = function(e){ // onload가 실행된다.
+            // console.log(e); // prograsive이벤트
+            let result = e.garget.result;
+            if(result.includes("image")){
+                imgDiv.style.backgroundImage = `url('${result}')`;
+            }else{
+                imgDiv.style.backgroundImage = `url('no_image.png')`;
+
+            }
+        };
+    });
+</script>
+</html>
