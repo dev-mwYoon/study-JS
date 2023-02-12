@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+body {
+    text-align: center;
+    font-size: 12px;
+}
+
+.container {
+    width: 40%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.inner-container {
+    padding: 0 15px;
+}
+
+p {
+    text-align: center;
+    margin: 15px 0px 3px;
+    padding: 0px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #333333;
+}
+
+tr:nth-child(1) {
+    background-color: #fff6d9;
+}
+
+td {
+    padding: 2px;
+    border: 1px solid #333333;
+}
+
+.odd {
+    width: 42%;
+}
+
+legend {
+    text-align: center;
+}
+
+input {
+    width: 37%;
+}

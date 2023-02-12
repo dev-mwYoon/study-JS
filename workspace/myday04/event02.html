@@ -9,7 +9,7 @@
 <body>
     <form name="joinForm">
         <div>
-            <input type="text" name="id" placeholder="아이디" autocomplete="off">
+            <input type="text" name="id" placeholder="아이디" autocomplete="off"><!-- autocomplete="off" 자동완성 끄기 -->
         </div>
         <p id="result"></p>
         <div>
@@ -18,19 +18,20 @@
     </form>
 </body>
 <script>
-    const input = joinForm.id;
-    const input2 = document.querySelector("form[name=joinForm]");
+    const input = joinForm.id; // 왜 document.querySelecter로 안하고 저렇게만?
     const result = document.querySelector("p#result");
+
+    console.log(document.forms);
 
     input.addEventListener("blur", function(){
         if(!this.value){
             result.innerHTML = "아이디를 입력해주세요";
             result.style.color = "red";
             this.focus();
-        }else{
+        } else{
             result.innerHTML = "사용 가능한 아이디입니다.";
             result.style.color = "blue";
         }
-    });
+    })
 </script>
 </html>

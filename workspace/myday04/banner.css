@@ -1,0 +1,23 @@
+@charset "utf-8";
+body {
+    min-width: 1728px;
+}
+
+section.container {
+    width: 1728px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+div.banner {
+    width: 10368px;
+    transition: transform 0.3s;
+    /* transform: translate(-90vw); */
+}
+
+div.banner div {
+    width: 1728px;
+    height: 57vh;
+    float: left;
+    background-size: 100%;
+}

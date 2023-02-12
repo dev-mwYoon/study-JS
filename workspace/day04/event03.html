@@ -58,7 +58,7 @@
         closeSpan.addEventListener('click', function (e) {
             e.preventDefault();
             input.value = "";
-            fileName.innerHTML = "";
+            fileName.innerHTML = 
             this.style.display = 'none';
             imgDiv.style.backgroundImage = `url('https://cdn-icons-png.flaticon.com/512/272/272446.png')`;
         });
@@ -73,8 +73,10 @@
             reader.onload = function (e) {
                 let result = e.target.result;
                 if (result.includes('image')) {
+                    console.log(result);
                     imgDiv.style.backgroundImage = `url('${result}')`;
                 } else {
+                    console.log(result);
                     imgDiv.style.backgroundImage = `url('no_image.png')`;
                 }
             };
