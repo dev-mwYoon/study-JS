@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기초 예제2</title>
+</head>
+<body>
+    <ul class="car">
+        <li>벤틀리</li>
+        <li>머스탱</li>
+        <li id="lamborghini">람보르기니</li>
+    </ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+    // 달러심볼
+    const $lists = $("li");
+    const $ul = $("ul.car");
+    const $li = $("$lamborghini");
+    // console.log($lists);
+
+    console.log($ul.find("#lamborghini").text()); // 이것 안에서 검색. 자식 검색
+    $ul.closest(); // closest(): 나랑 가까운 부모를 찾는 함수
+    $ul.closest("body").css("background-color", "orange").find(".car").children().eq(1).text("포르쉐");
+    $li.prev().text();
+    $li.prev().next().text();
+    // $li.next();
+    
+
+    // $ul.children().first().text("페라리");
+    // $ul.parent().css('background-color', 'skyBlue'); // 값의 수정
+    // $ul.parent().css('background-color'); // 값을 가져오기
+    // console.log($ul.children()[2]); // 대괄호로 가져오면 자바스크립트
+    // console.log($($ul.children()[2])); // 자바스크립트를 달러로 감싸면 jQuery
+    // console.log($ul.children().last().text()); // 대괄호로 가져오면 자바스크립트
+    // console.log($ul.children().eq(2)); // 
+    // $ul.children().last().remove();
+    // $ul.append("<li>벤틀리</li>");
+    // console.log($ul.attr('class')); // attr() : 소괄호 안에 값이 1개면 값 가져오고, 2개면 수정
+    // console.log($ul.attr('class', 'super-car')); // attr() : 소괄호 안에 값이 1개면 값 가져오고, 2개면 수정
+</script>
+</html>

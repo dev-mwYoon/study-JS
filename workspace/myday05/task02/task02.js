@@ -1,4 +1,8 @@
-document.querySelector("#change").addEventListener("click", e => {getResult(changeToHangle)});
+/* 
+    myday05/task02/task02.html
+*/
+
+document.querySelector("#change").addEventListener("click", e => {checkNameResult(changeToHangle)});
 
 function changeToHangle(number) {
     const numbering = document.querySelector("div#round");
@@ -30,7 +34,7 @@ function changeToHangle(number) {
         }
 
         result += temp;
-
+""
         numbering.innerHTML = "3";
         
         if(check){
@@ -42,7 +46,7 @@ function changeToHangle(number) {
     return result;
 }
 
-function getResult(callback){
+function checkNameResult(callback){
     const input = document.querySelector("input[name='input']").value;
     if(callback){
         callback(input);

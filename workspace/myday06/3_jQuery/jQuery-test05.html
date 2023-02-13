@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 비밀번호 표시</title>
+    <style>
+        #wrap {
+            border: 0.5px solid #000026;
+            width: 250px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        div.password {
+            width: 200px;
+        }
+
+        div.password input {
+            outline: none; /* 클릭했을 때도 선 안보이게 하려고 */
+            border: none;
+        }
+        div.eye {
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        div.show {
+            background-image: url("show.png");
+        }
+
+        div.hide {
+            background-image: url("hide.png")
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="password">
+            <input type="password" name="userPassword" placeholder="비밀번호">
+        </div>
+        <div class="hide eye"></div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+    const eye = $(".eye");
+
+    // eye.click(function(){
+    //     // const eye = $(".eye").prop('classList')[0];
+    //     const statusForStyle = {show: 'hide', hide: 'show'};
+    //     const statusForType = {show: 'text', hide: 'password'};
+    //     const currentStatus = eye[0];
+    //     // eye.replace(currentStatus, statusForStyle[currentStatus]); // 규칙성..?때문에 .쓰는건 말 안되고 대괄호 쓰는게 맞음?
+    //     // $(this).prev().find("input").attr('type', statusForType[currentStatus])
+    //     $(".eye").prop('classList').replace($(".eye").prop('classList')[0], statusForStyle[$(".eye").prop('classList')[0]]); // 규칙성..?때문에 .쓰는건 말 안되고 대괄호 쓰는게 맞음?
+    //     $(this).prev().find("input").attr('type', statusForType[$(".eye").prop('classList')[0]])
+
+    // });
+    eye.click(function(){
+        const statusForStyle = {show: 'hide', hide: 'show'};
+        const statusForType = {show: 'text', hide: 'password'};
+
+        $(this).prop('classList').replace(getCurrentStatus(), statusForStyle[getCurrentStatus()]);
+        $("input[name=userPassword]").attr('type', statusForType[getCurrentStatus()]);
+    });
+
+    function getCurrentStatus(){
+        return eye.prop('classList')[0];
+    }
+
+</script>
+</html>
