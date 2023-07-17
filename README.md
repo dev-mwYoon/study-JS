@@ -1,4 +1,4 @@
-# JavaScript_Study
+# JavaScript
 
 웹 페이지에서 자바스크립트의 역할
    웹 페이지는 3가지(HTML, CSS, JS) 코드가 결합되어 작성된다.
